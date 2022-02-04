@@ -4,6 +4,8 @@
 
 This program searches for similar images on a computer using histogram comparison (color distribution), given the path to a reference image and a path to the directory to be searched. The user can specify the search limits.
 
+The path to the similar images are displayed on the title bar of the gui displaying the similar image.
+
 **NOTE: This utility program does not find similar images based on the objects contained in the image, instead, it uses the color distribution to find similar images. This is to be executed on the terminal, although some of its functionalities can be imported.**
 
 ### Installation

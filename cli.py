@@ -10,8 +10,9 @@ def arg_parser():
     parser = argparse.ArgumentParser(
                 description="""
                 Given a refrence image '--ref-img', the program searches the given
-                directory '--dir' for similar images in terms of the differences 
-                in the pixels of the image (i.e. the color distribution of the image.)\n
+                directory '--dir' and sub-directories for similar images in terms of the
+                similarities in the pixels' value of the image (i.e. the color distribution
+                of the image.)\n
                 NOTE: The program does not search based on the objects in the images.
                 The supported images include jpg, jpeg, png files.
                 """,
@@ -69,3 +70,6 @@ def main():
         if os.path.exists(os.path.join(os.getcwd(), "thumbs")):
             cleanup(os.path.join(os.getcwd(), "thumbs"))
             os.rmdir(os.path.join(os.getcwd(), "thumbs"))
+
+if __name__ == "__main__":
+    main()

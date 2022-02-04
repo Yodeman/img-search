@@ -21,6 +21,9 @@ python setup.py install
 
 
 
+
+
+
 ### Quick Start
 
 The package is easy to use. Below is an example of how to search for similar image:
@@ -31,3 +34,4 @@ img-search --ref-img path/to/reference/image --dir path/to/directory
 
 
 
+https://user-images.githubusercontent.com/59335237/152560324-a4ac70f8-c948-41dd-8f32-4ed9d6585223.mp4

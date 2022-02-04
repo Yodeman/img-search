@@ -50,24 +50,22 @@ def main():
     if (not args.ref_img or not args.dir):
         print("Both --ref-img and --dir arguments are required!!!\n\ntype img-search --help")
         exit()
-    engine = ImageSearchEngine(args.ref_img, args.dir, args.limit)
-    print("Searching...")
-    imgpaths = engine.search()
-    print(f"Done searching... found {len(imgpaths)} similar images.\nLoading {len(imgpaths)} images...")
-    if (len(imgpaths) == 0):
-        print("exiting...")
-        exit()
     try:
+        engine = ImageSearchEngine(args.ref_img, args.dir, args.limit)
+        print("Searching...")
+        imgpaths = engine.search()
+        print(f"Done searching... found {len(imgpaths)} similar images.\nLoading {len(imgpaths)} images...")
+        if (len(imgpaths) == 0):
+            print("exiting...")
+            exit()
         mainwin = viewThumbs(imgpaths, kind=Tk)
         mainwin.mainloop()
         print("cleaning up...")
-        if os.path.exists(os.path.join(os.getcwd(), "thumbs")):
-            cleanup(os.path.join(os.getcwd(), "thumbs"))
-            os.rmdir(os.path.join(os.getcwd(), "thumbs"))
+    except KeyboardInterrupt:
+        print("\nYou interrupted the program.\ncleaning up and exiting...")
     except Exception:
-        print("cleaning up and exiting...")
+        print("An exception occurred!\ntype img-search --help for HELP to know more about the arguments.")
+    finally:
         if os.path.exists(os.path.join(os.getcwd(), "thumbs")):
             cleanup(os.path.join(os.getcwd(), "thumbs"))
             os.rmdir(os.path.join(os.getcwd(), "thumbs"))
-
-
